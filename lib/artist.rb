@@ -2,6 +2,10 @@ class Artist
   attr_accessible :name, 
   @@all = []
   
+  def initialize
+    @@all << self 
+  end
+  
   def songs 
     Song.all.select{|song|song.artist == self}
   end
